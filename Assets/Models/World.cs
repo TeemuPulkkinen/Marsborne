@@ -11,6 +11,7 @@ public class World
     public int Width { get => width; set => width = value; }
     public int Height { get => height; set => height = value; }
 
+    // Sets the dimensions of the world
     public World(int width = 100, int height = 100)
     {
         this.width = width;
