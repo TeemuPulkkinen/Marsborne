@@ -8,6 +8,9 @@ public class World
     int width;
     int height;
 
+    public int Width { get => width; set => width = value; }
+    public int Height { get => height; set => height = value; }
+
     public World(int width = 100, int height = 100)
     {
         this.width = width;
@@ -26,6 +29,25 @@ public class World
         Debug.Log("World created with " + (width * height) + " tiles.");
     }
 
+    public void RandomizeTiles()
+    {
+        Debug.Log("RandomizeTiles");
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if (Random.Range(0, 2) == 0)
+                {
+                    tiles[x, y].Type = Tile.TileType.Empty;
+                }
+                else
+                {
+                    tiles[x, y].Type = Tile.TileType.Floor;
+                }
+            }
+        }
+    }
+
     public Tile GetTileAt(int x, int y)
     {
         if (x > width || x < 0 || y > height || y < 0)
@@ -35,4 +57,5 @@ public class World
         }
         return tiles[x, y];
     }
+
 }
